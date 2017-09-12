@@ -32,71 +32,22 @@
 
 <main class="clear">
     <div class="mainLeft">
+   {%for data in contents%}
+    <div class="listBox">
+        <h1>{{data.title}}</h1>
+        <p class="colDefault">
+            作者：<span class="colInfo"></span> -{{data.user.username}}
+            时间：<span class="colInfo"></span> -{{data.addTime|date('Y-m-d H:i:s', -8*60)}}
+            阅读：<span class="colInfo"></span> -{{data.views}}
+            评论：<span class="colInfo"></span>
+        </p>
+        <dfn><p>
+            {{data.description}}
+        </p></dfn>
+        <div class="function"><a href="#">{{data.content}}</a></div>
+    </div>
+    {%endfor%}
    
-    <div class="listBox">
-        <h1>How do you think of NodeJs?</h1>
-        <p class="colDefault">
-            作者：<span class="colInfo"></span> -wyf
-            时间：<span class="colInfo"></span> -2017.9.4
-            阅读：<span class="colInfo"></span> -33
-            评论：<span class="colInfo"></span>
-        </p>
-        <dfn><p>
-            这是自学node写的blog,多有不足
-        </p></dfn>
-        <div class="function"><a href="#">阅读全文</a></div>
-    </div>
-    <div class="listBox">
-        <h1>How do you think of NodeJs?</h1>
-        <p class="colDefault">
-            作者：<span class="colInfo"></span> -wyf
-            时间：<span class="colInfo"></span> -2017.9.4
-            阅读：<span class="colInfo"></span> -33
-            评论：<span class="colInfo"></span>
-        </p>
-        <dfn><p>
-            这是自学node写的blog,多有不足
-        </p></dfn>
-        <div class="function"><a href="#">阅读全文</a></div>
-    </div><div class="listBox">
-        <h1>How do you think of NodeJs?</h1>
-        <p class="colDefault">
-            作者：<span class="colInfo"></span> -wyf
-            时间：<span class="colInfo"></span> -2017.9.4
-            阅读：<span class="colInfo"></span> -33
-            评论：<span class="colInfo"></span>
-        </p>
-        <dfn><p>
-            这是自学node写的blog,多有不足
-        </p></dfn>
-        <div class="function"><a href="#">阅读全文</a></div>
-    </div>
-    <div class="listBox">
-        <h1>How do you think of NodeJs?</h1>
-        <p class="colDefault">
-            作者：<span class="colInfo"></span> -wyf
-            时间：<span class="colInfo"></span> -2017.9.4
-            阅读：<span class="colInfo"></span> -33
-            评论：<span class="colInfo"></span>
-        </p>
-        <dfn><p>
-            这是自学node写的blog,多有不足
-        </p></dfn>
-        <div class="function"><a href="#">阅读全文</a></div>
-    </div>
-    <div class="listBox">
-        <h1>How do you think of NodeJs?</h1>
-        <p class="colDefault">
-            作者：<span class="colInfo"></span> -wyf
-            时间：<span class="colInfo"></span> -2017.9.4
-            阅读：<span class="colInfo"></span> -33
-            评论：<span class="colInfo"></span>
-        </p>
-        <dfn><p>
-            这是自学node写的blog,多有不足
-        </p></dfn>
-        <div class="function"><a href="#">阅读全文</a></div>
-    </div>
     <div class="pager">
         <ul class="clear">
 

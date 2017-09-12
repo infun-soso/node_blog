@@ -274,7 +274,7 @@ router.get('/content',function(req, res){
         skip = (page-1) * limit
         //populate 查询关联表category
         Content.find().sort({_id:-1}).limit(limit).skip(skip).populate('category').populate('user').then(function(contents){
-            // console.log(contents)
+             console.log(contents)
             res.render('admin/content_index', {
                 userInfo: req.userInfo,
                 contents: contents,
@@ -325,6 +325,9 @@ router.post('/content/add',function(req, res){
           new Content({
                 category:req.body.category,
                 title:title,
+
+                //? 关联user表
+                user : req.userInfo._id.toString(),
                 description:description,
                 content:content
             }).save().then(function(newContent){
