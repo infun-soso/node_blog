@@ -4,7 +4,7 @@
 
 //加载express模块
 var express = require('express');
-//记载swig模板
+//加载swig模板
 var swig = require('swig');
 //加载cookies模块
 var Cookies = require('cookies')

@@ -273,8 +273,8 @@ router.get('/content',function(req, res){
 
         skip = (page-1) * limit
         //populate 查询关联表category
-        Content.find().sort({_id:-1}).limit(limit).skip(skip).populate('category').populate('user').then(function(contents){
-             console.log(contents)
+        Content.find().sort({addTime:-1}).limit(limit).skip(skip).populate('category').populate('user').then(function(contents){
+             //console.log(contents)
             res.render('admin/content_index', {
                 userInfo: req.userInfo,
                 contents: contents,

@@ -1,4 +1,4 @@
-var prepage = 10;
+var prepage = 3;
 var page = 1;
 var pages = 0;
 var comments = [];
@@ -22,6 +22,7 @@ $('#messageBtn').on('click', function() {
 });
 
 //每次页面重载的时候获取一下该文章的所有评论
+//get方式是通过url传递参数
 $.ajax({
     url: '/api/comment',
     data: {
@@ -81,6 +82,7 @@ function renderComment() {
 }
 
 function formatDate(d) {
+    //d为字符串  通过date变为日期对象，就可以进行时间格式化
     var date1 = new Date(d);
     return date1.getFullYear() + '年' + (date1.getMonth()+1) + '月' + date1.getDate() + '日 ' + date1.getHours() + ':' + date1.getMinutes() + ':' + date1.getSeconds();
 }

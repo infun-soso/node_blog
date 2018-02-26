@@ -19,75 +19,34 @@
 
 <nav>
     <div class="menu">
-    <a href="" class="focus">首页</a>
-        {%for category in categories%}
-        <a href="/">{{category.name}}</a>
+        {%if category == ''%}
+        <a href="/" class="focus">首页</a>
+        {%else%}
+        <a href="/">首页</a>
+        {%endif%}
+
+
+        {%for cate in categories%}
+            {%if category == cate.id %}
+                <a href="/?category={{cate.id}}" class="focus">{{cate.name}}</a>
+            {%else%}
+                <a href="/?category={{cate.id}}">{{cate.name}}</a>
+            {%endif%}
         {%endfor%}
-        
-        
     </div>
 </nav>
 
 
-
 <main class="clear">
     <div class="mainLeft">
-   {%for data in contents%}
-    <div class="listBox">
-        <h1>{{data.title}}</h1>
-        <p class="colDefault">
-            作者：<span class="colInfo"></span> -{{data.user.username}}
-            时间：<span class="colInfo"></span> -{{data.addTime|date('Y-m-d H:i:s', -8*60)}}
-            阅读：<span class="colInfo"></span> -{{data.views}}
-            评论：<span class="colInfo"></span>
-        </p>
-        <dfn><p>
-            {{data.description}}
-        </p></dfn>
-        <div class="function"><a href="#">{{data.content}}</a></div>
+        {%block content%}{%endblock%}
     </div>
-    {%endfor%}
-   
-    <div class="pager">
-        <ul class="clear">
-
-            <li class="previous">
-
-       
-                <span>没有上一页了</span>
-     
-                <a href="##">上一页</a>
-
-
-            </li>
-
-            <li>
-                <strong></strong>
-            </li>
-    
-
-            <li class="next">
-
-                <span>没有下一页了</span>
- 
-                <a href="/?category={{category}}&page={{page+1}}">下一页</a>
-          
-
-            </li>
-
-        </ul>
-    </div>
-
-    </div>
-
     <div class="mainRight">
-
-
         {%if userInfo._id %}
         <div class="rightBox" id="userInfo">
             <div class="title"><span>用户信息</span></div>
             <p><span class="colDark">{{userInfo.username}}</span></p>
-            
+
             {% if userInfo.isAdmin %}
             <p>
                 <span class="colDanger info">你好，管理员！</span>
@@ -96,7 +55,7 @@
             {% else %}
              <p><span class="colDanger">你好，欢迎光临我的博客！</span></p>
             {% endif %}
-           
+
             <p><span class="colDark"><a href="javascript:;" id="logout">退出</a></span></p>
         </div>
         {%else%}
